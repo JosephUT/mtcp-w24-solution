@@ -1,3 +1,0 @@
-/home/jake/Development/mros_json/cmake-build-debug/CMakeFiles/mros_json.dir
-/home/jake/Development/mros_json/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/jake/Development/mros_json/cmake-build-debug/CMakeFiles/rebuild_cache.dir
