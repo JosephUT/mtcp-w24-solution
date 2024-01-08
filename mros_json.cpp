@@ -2,7 +2,6 @@
 #include <exception>
 #include <stdexcept>
 #include <cstdint>
-#include <stack>
 #include <variant>
 
 Json::Value &Json::operator[](const std::string &key) {
@@ -19,6 +18,10 @@ Json::Value const &Json::operator[](const std::string &key) const {
         return it->second;
     }
     return {};
+}
+
+bool Json::operator==(const Json &json) const {
+    return this->elts_ == json.elts_;
 }
 
 std::string Json::toString() const {
@@ -137,9 +140,10 @@ Json Json::fromString(std::string const &str) {
 
         }
     }
-
     return json;
 }
+
+
 
 
 

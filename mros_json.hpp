@@ -48,6 +48,10 @@ public:
          */
         Value &operator=(Value const &v) = default;
 
+        bool operator==(Json::Value const& value) const {
+            return this->data_ == value.data_;
+        }
+
         /**
          * Implicit value constructor for supported types defined by Json::Value::ValueType
          * @tparam T Type of value constructed
@@ -135,6 +139,7 @@ public:
      */
     Value const &operator[](std::string const &key) const;
 
+    bool operator==(Json const& json) const;
     /**
      * Converts Json object to string
      * @return string json representation
