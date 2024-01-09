@@ -169,6 +169,22 @@ Json Json::fromString(const std::string& str) {
                     }
                     currentState = State::INIT;
                 } else if (c == ',') {
+                    if (!currentKey.empty()) {
+                        try {
+                            std::istringstream iss(currentValue);
+                            char next;
+                            if (iss >> std::ws >> next && iss.eof()) {
+                                json[currentKey] = std::stoi(currentValue);
+                            } else {
+                                json[currentKey] = std::stod(currentValue);
+                            }
+                        } catch (const std::invalid_argument &) {
+                            // Treat as string if conversion fails
+                            json[currentKey] = currentValue;
+                        }
+                        currentKey.clear();
+                        currentValue.clear();
+                    }
                     currentState = State::KEY;
                 } else if (std::isspace(c)) {
                     // Skip whitespace
@@ -234,7 +250,6 @@ Json Json::fromString(const std::string& str) {
         }
         ++it;
     }
-
     return json;
 }
 

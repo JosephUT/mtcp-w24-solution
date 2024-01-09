@@ -94,6 +94,7 @@ public:
         T const &get() const {
             return std::get<T>(this->data_);
         }
+
     };
 
     /**
