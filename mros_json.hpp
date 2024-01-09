@@ -48,7 +48,7 @@ public:
          */
         Value &operator=(Value const &v) = default;
 
-        bool operator==(Json::Value const& value) const {
+        bool operator==(Json::Value const &value) const {
             return this->data_ == value.data_;
         }
 
@@ -64,7 +64,7 @@ public:
         /**
          * std::variant<type...> alias for Json::Value
          */
-        using ValueType = std::variant<int, double, bool, std::string>;
+        using ValueType = std::variant<int, double, std::string, std::vector<int>, std::vector<double>, std::vector<std::string>>;
 
         /**
          * Underlying data constructor
@@ -139,7 +139,8 @@ public:
      */
     Value const &operator[](std::string const &key) const;
 
-    bool operator==(Json const& json) const;
+    bool operator==(Json const &json) const;
+
     /**
      * Converts Json object to string
      * @return string json representation

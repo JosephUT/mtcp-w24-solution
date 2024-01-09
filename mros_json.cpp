@@ -3,6 +3,8 @@
 #include <stdexcept>
 #include <cstdint>
 #include <variant>
+#include <algorithm>
+
 
 Json::Value &Json::operator[](const std::string &key) {
     auto it = elts_.find(key);
@@ -47,32 +49,74 @@ std::string Json::stringify(const Json::Value &value) {
         case 1: // double
             str = std::to_string(std::get<double>(value.data_));
             break;
-        case 2: // boolean
-            str = std::get<bool>(value.data_) ? "true" : "false";
-            break;
-        case 3: // string
+        case 2: // string
             str = "\"" + std::get<std::string>(value.data_) + "\"";
             break;
+        case 3: { // std::vector<int>
+            auto const &vec = std::get<std::vector<int>>(value.data_);
+            str += '[';
+            for (int const val: vec) {
+                str += std::to_string(val) + ',' + ' ';
+            }
+            if (!vec.empty()) {
+                str.pop_back();
+                str.pop_back();
+            }
+            str += ']';
+            break;
+        }
+        case 4: { // std::vector<double>
+            auto const &vec = std::get<std::vector<double>>(value.data_);
+            str += '[';
+            for (double const val: vec) {
+                str += std::to_string(val) + ',' + ' ';
+            }
+            if (!vec.empty()) {
+                str.pop_back();
+                str.pop_back();
+            }
+            str += ']';
+            break;
+        }
+        case 5: { // std::vector<std::string>
+            auto const &vec = std::get<std::vector<std::string>>(value.data_);
+            str += '[';
+            for (std::string const& val: vec) {
+                str += "\"" + val + "\"" + ',' + ' ';
+            }
+            if (!vec.empty()) {
+                str.pop_back();
+                str.pop_back();
+            }
+            str += ']';
+            break;
+        }
         default:
             throw std::runtime_error("Unsupported type in Json::stringify");
     }
     return str;
 }
 
-Json Json::fromString(std::string const &str) {
+Json Json::fromString(const std::string& str) {
     Json json;
     std::string currentKey;
     std::string currentValue;
 
+    std::vector<int> currentIntArray;
+    std::vector<double> currentDoubleArray;
+    std::vector<std::string> currentStringArray;
+
     enum class State {
-        INIT,  // Initial state
-        KEY,   // Parsing key
-        VALUE, // Parsing value
+        INIT,           // Initial state
+        KEY,            // Parsing key
+        VALUE,          // Parsing value
+        ARRAY_ELEMENT   // Parsing array element
     };
 
     State currentState = State::INIT;
-
-    for (char c: str) {
+    auto it = str.begin();
+    while (it != str.end()) {
+        char c = *it;
         switch (currentState) {
             case State::INIT:
                 if (c == '{') {
@@ -104,14 +148,9 @@ Json Json::fromString(std::string const &str) {
                     currentState = State::VALUE;
                 } else if (c == '{') {
                     currentState = State::VALUE;
-                }
-                    // Where the support for Array Types would go
-//                else if (c == '[') {
-//                    currentState = State::VALUE;
-//                } else if (c == ']') {
-//                    currentState = State::VALUE;
-//                }
-                else if (c == '}') {
+                } else if (c == '[') {
+                    currentState = State::ARRAY_ELEMENT;
+                } else if (c == '}') {
                     if (!currentKey.empty()) {
                         try {
                             std::istringstream iss(currentValue);
@@ -137,9 +176,65 @@ Json Json::fromString(std::string const &str) {
                     currentValue += c;
                 }
                 break;
-
+            case State::ARRAY_ELEMENT:
+                if (c == '"') {
+                    currentState = State::ARRAY_ELEMENT;
+                } else if (c == '[') {
+                    // Nested arrays are not supported in this example
+                    throw std::runtime_error("Nested arrays are not supported.");
+                } else if (c == '{') {
+                    throw std::logic_error("Nested Json not supported");
+                } else if (c == '}') {
+                    throw std::logic_error("Grabbed closing json bracket when should be closing array bracket");
+                }
+                else if (c == ']') {
+                    // End of array, store the current array
+                    if (!currentKey.empty()) {
+                        if (!currentIntArray.empty()) {
+                            json[currentKey] = currentIntArray;
+                        } else if (!currentDoubleArray.empty()) {
+                            json[currentKey] = currentDoubleArray;
+                        } else if (!currentStringArray.empty()) {
+                            json[currentKey] = currentStringArray;
+                        }
+                        currentKey.clear();
+                        currentIntArray.clear();
+                        currentDoubleArray.clear();
+                        currentDoubleArray.clear();
+                    }
+                    currentState = State::INIT;
+                } else if (c == ',') {
+                    // Separator between array elements
+                    currentState = State::ARRAY_ELEMENT;
+                } else if (std::isspace(c)) {
+                    // Skip whitespace
+                } else {
+                    // Parse array element based on the type
+                    std::string arrayElementValue;
+                    while (it != str.end() && c != ',' && c != ']' && !std::isspace(c)) {
+                        arrayElementValue += c;
+                        c = *(++it);
+                    }
+                    try {
+                        size_t pos;
+                        int intResult = std::stoi(arrayElementValue, &pos);
+                        if (pos == arrayElementValue.size()) {
+                            currentIntArray.push_back(intResult);
+                        } else {
+                            currentDoubleArray.push_back(std::stod(arrayElementValue));
+                        }
+                    } catch (const std::invalid_argument &) {
+                        arrayElementValue.pop_back(); // The iterator decrement below requires this
+                        currentStringArray.push_back(arrayElementValue);
+                    }
+                    currentState = State::ARRAY_ELEMENT;
+                    --it; // the while conditions skip ']', so we step back once
+                }
+                break;
         }
+        ++it;
     }
+
     return json;
 }
 
