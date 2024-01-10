@@ -19,7 +19,8 @@ Json::Value const &Json::operator[](const std::string &key) const {
     if (it != elts_.end()) {
         return it->second;
     }
-    return {};
+    static Json::Value emptyValue;
+    return emptyValue;
 }
 
 bool Json::operator==(const Json &json) const {
@@ -81,7 +82,7 @@ std::string Json::stringify(const Json::Value &value) {
         case 5: { // std::vector<std::string>
             auto const &vec = std::get<std::vector<std::string>>(value.data_);
             str += '[';
-            for (std::string const& val: vec) {
+            for (std::string const &val: vec) {
                 str += "\"" + val + "\"" + ',' + ' ';
             }
             if (!vec.empty()) {
@@ -97,7 +98,7 @@ std::string Json::stringify(const Json::Value &value) {
     return str;
 }
 
-Json Json::fromString(const std::string& str) {
+Json Json::fromString(const std::string &str) {
     Json json;
     std::string currentKey;
     std::string currentValue;
@@ -152,36 +153,18 @@ Json Json::fromString(const std::string& str) {
                     currentState = State::ARRAY_ELEMENT;
                 } else if (c == '}') {
                     if (!currentKey.empty()) {
-                        try {
-                            std::istringstream iss(currentValue);
-                            char next;
-                            if (iss >> std::ws >> next && iss.eof()) {
-                                json[currentKey] = std::stoi(currentValue);
-                            } else {
-                                json[currentKey] = std::stod(currentValue);
-                            }
-                        } catch (const std::invalid_argument &) {
-                            // Treat as string if conversion fails
-                            json[currentKey] = currentValue;
-                        }
+                        Json::Value value = getType(currentValue);
+                        json[currentKey] = value;
+
                         currentKey.clear();
                         currentValue.clear();
                     }
                     currentState = State::INIT;
                 } else if (c == ',') {
                     if (!currentKey.empty()) {
-                        try {
-                            std::istringstream iss(currentValue);
-                            char next;
-                            if (iss >> std::ws >> next && iss.eof()) {
-                                json[currentKey] = std::stoi(currentValue);
-                            } else {
-                                json[currentKey] = std::stod(currentValue);
-                            }
-                        } catch (const std::invalid_argument &) {
-                            // Treat as string if conversion fails
-                            json[currentKey] = currentValue;
-                        }
+                        Json::Value value = getType(currentValue);
+                        json[currentKey] = value;
+
                         currentKey.clear();
                         currentValue.clear();
                     }
@@ -202,8 +185,7 @@ Json Json::fromString(const std::string& str) {
                     throw std::logic_error("Nested Json not supported");
                 } else if (c == '}') {
                     throw std::logic_error("Grabbed closing json bracket when should be closing array bracket");
-                }
-                else if (c == ']') {
+                } else if (c == ']') {
                     // End of array, store the current array
                     if (!currentKey.empty()) {
                         if (!currentIntArray.empty()) {
@@ -231,18 +213,18 @@ Json Json::fromString(const std::string& str) {
                         arrayElementValue += c;
                         c = *(++it);
                     }
-                    try {
-                        size_t pos;
-                        int intResult = std::stoi(arrayElementValue, &pos);
-                        if (pos == arrayElementValue.size()) {
-                            currentIntArray.push_back(intResult);
-                        } else {
-                            currentDoubleArray.push_back(std::stod(arrayElementValue));
-                        }
-                    } catch (const std::invalid_argument &) {
-                        arrayElementValue.pop_back(); // The iterator decrement below requires this
-                        currentStringArray.push_back(arrayElementValue);
+                    // Need type converter here
+                    Json::Value val = getType(arrayElementValue);
+                    if (val.data_.index() == 0) { //int
+                        currentIntArray.push_back(val.get<int>());
+                    } else if (val.data_.index() == 1) { // double
+                        currentDoubleArray.push_back(val.get<double>());
+                    } else if (val.data_.index() == 2) {
+                        currentStringArray.push_back(val.get<std::string>());
+                    } else {
+                        throw std::runtime_error("invalid type");
                     }
+
                     currentState = State::ARRAY_ELEMENT;
                     --it; // the while conditions skip ']', so we step back once
                 }
@@ -253,6 +235,33 @@ Json Json::fromString(const std::string& str) {
     return json;
 }
 
+Json::Value Json::getType(const std::string &str) {
+    try {
+        size_t pos;
+        int intResult = std::stoi(str, &pos);
+        if (pos == str.size()) {
+            return intResult;
+        }
+        return std::stod(str);
+    } catch (const std::invalid_argument &) {
+        return str;
+    }
+}
+
+Json::Value Json::getType2(const std::string &str) {
+    try {
+        std::istringstream iss(str);
+        char next;
+        if (iss >> std::ws >> next && iss.eof()) {
+            return std::stoi(str);
+        } else {
+            return std::stod(str);
+        }
+    } catch (const std::invalid_argument &) {
+        // Treat as string if conversion fails
+        return str;
+    }
+}
 
 
 

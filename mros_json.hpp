@@ -167,4 +167,18 @@ private:
      * @return string of type stored in Json::Value::ValueType
      */
     static std::string stringify(Json::Value const &value);
+
+    /**
+     * Helper function to take string and convert to Json::Value type
+     * @param str string of value
+     * @return Json::Value with proper type
+     */
+    static Json::Value getType(std::string const& str);
+
+    /**
+     * Sample second implementation of Json::getType
+     * @param str string of value
+     * @return Json::Value with proper type
+     */
+    static Json::Value getType2(std::string const& str);
 };
