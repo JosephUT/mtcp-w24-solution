@@ -1,4 +1,4 @@
-#include "mros_json.hpp"
+#include "../include/mros_json.hpp"
 #include <exception>
 #include <stdexcept>
 #include <cstdint>
@@ -34,7 +34,7 @@ std::string Json::toString() const {
     }
     if (!elts_.empty()) {
         jsonString.pop_back();
-    }
+    } // do nothing
     jsonString += "}";
     return jsonString;
 }
