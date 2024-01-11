@@ -5,8 +5,10 @@
 0	1907	1704930467920942420	CMakeFiles/mros_json.dir/main.cpp.o	c17e7b9f39b7f337
 5	679	1704935246496466379	CMakeFiles/mtcp_lib.dir/src/socket/message_socket/message_socket.cpp.o	75f44de42a3ca900
 3	655	1704935086003253608	CMakeFiles/mtcp.dir/src/socket/message_socket/message_socket.cpp.o	96b0a89036138e4
-1	43	1704935291345524969	build.ninja	a38c26613b4c70e0
+1	55	1704935753187712142	build.ninja	a38c26613b4c70e0
+3	1234	1704935372246630648	CMakeFiles/controller.dir/src/mros_json.cpp.o	5ec0b7a6a1829159
 3	33	1704935036243186737	CMakeFiles/mtcp.dir/src/socket/connection_socket.cpp.o	1c448d80db10ed32
+1234	1358	1704935372373630813	controller	a3fa71ea7c2acb63
 4	521	1704935085869253428	CMakeFiles/mtcp.dir/src/socket/message_socket/connection_message_socket.cpp.o	c325984fa2321560
 6	1236	1704935247051467104	CMakeFiles/controller.dir/main.cpp.o	2cdf0d79a9a5a6f3
 2	392	1704935036602187219	CMakeFiles/mtcp.dir/src/socket/client_socket.cpp.o	fb2895485bc32f4e
@@ -20,10 +22,3 @@
 4	433	1704935246250466058	CMakeFiles/mtcp_lib.dir/src/socket/client_socket.cpp.o	7b235c5e0c61d0bb
 2	43	1704935245859465547	CMakeFiles/mtcp_lib.dir/src/socket/socket.cpp.o	7e8345e49b1b7525
 6	591	1704935246408466265	CMakeFiles/mtcp_lib.dir/src/socket/message_socket/client_message_socket.cpp.o	4875cb1a081abfa5
-1	55	1704935291345524969	build.ninja	a38c26613b4c70e0
-3	1268	1704935297835533446	CMakeFiles/controller.dir/src/mros_json.cpp.o	5ec0b7a6a1829159
-1268	1409	1704935297979533635	controller	a3fa71ea7c2acb63
-3	1201	1704935325963570187	CMakeFiles/controller.dir/src/mros_json.cpp.o	5ec0b7a6a1829159
-1202	1315	1704935326080570340	controller	a3fa71ea7c2acb63
-3	1234	1704935372246630648	CMakeFiles/controller.dir/src/mros_json.cpp.o	5ec0b7a6a1829159
-1234	1358	1704935372373630813	controller	a3fa71ea7c2acb63

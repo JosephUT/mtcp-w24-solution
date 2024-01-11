@@ -26,4 +26,4 @@ add_executable(controller
         main.cpp
 )
 
-target_link_libraries(controller PRIVATE mtcp_lib)
+target_link_libraries(controller PUBLIC mtcp_lib)
