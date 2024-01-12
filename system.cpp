@@ -28,15 +28,15 @@ int main() {
     std::shared_ptr<ConnectionMessageSocket> controllerConnectionMessageSocket;
     std::shared_ptr<ConnectionMessageSocket> monitorConnectionMessageSocket;
 
-    while (status) {
-        do {
-            controllerConnectionMessageSocket = server_socket->acceptConnection<ConnectionMessageSocket>();
-        } while (!controllerConnectionMessageSocket);
 
-        do {
-            monitorConnectionMessageSocket = server_socket->acceptConnection<ConnectionMessageSocket>();
-        } while (!monitorConnectionMessageSocket);
+    do {
+        monitorConnectionMessageSocket = server_socket->acceptConnection<ConnectionMessageSocket>();
+    } while (!monitorConnectionMessageSocket);
+    do {
+        controllerConnectionMessageSocket = server_socket->acceptConnection<ConnectionMessageSocket>();
+    } while (!controllerConnectionMessageSocket);
 
+    try {
         while (status) {
             std::string recvMessage = controllerConnectionMessageSocket->receiveMessage();
             Json recvJson = Json::fromString(recvMessage);
@@ -47,7 +47,9 @@ int main() {
             sendJson = current_pose;
             monitorConnectionMessageSocket->sendMessage(sendJson.toString());
         }
-    }
+    } catch (std::exception const &) {}
+
+
     controllerConnectionMessageSocket->close();
     monitorConnectionMessageSocket->close();
     server_socket->close();
