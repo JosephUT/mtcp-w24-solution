@@ -18,12 +18,33 @@ add_library(mtcp_lib SHARED
 
 target_include_directories(mtcp_lib PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-        $<INSTALL_INTERFACE:include/mros>
+        $<INSTALL_INTERFACE:include/mtcp>
 )
+
+# DRIVERS
 
 add_executable(controller
         src/mros_json.cpp
-        main.cpp
+        controller.cpp
 )
 
 target_link_libraries(controller PUBLIC mtcp_lib)
+
+add_executable(system
+        src/mros_json.cpp
+        system.cpp
+)
+
+target_link_libraries(system PUBLIC mtcp_lib)
+
+
+# TESTS
+
+add_executable(test_json_reader
+        src/mros_json.cpp
+        test/json_reader.cpp
+)
+
+target_link_libraries(test_json_reader PUBLIC mtcp_lib)
+
+

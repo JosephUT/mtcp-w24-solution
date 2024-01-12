@@ -9,8 +9,8 @@
 
 
 int main() {
-    std::string directory = "messages";
-    std::filesystem::path absolute_path = std::filesystem::current_path() / directory;
+    std::string directory = "toStringTests";
+    std::filesystem::path absolute_path = std::filesystem::current_path() / "test" / directory;
     for (auto const& entry : std::filesystem::directory_iterator(absolute_path)) {
         std::ifstream ifs(entry.path());
         if (!ifs.is_open()) {

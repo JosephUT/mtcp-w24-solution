@@ -139,8 +139,8 @@ build CMakeFiles/controller.dir/src/mros_json.cpp.o: CXX_COMPILER__controller_un
   OBJECT_DIR = CMakeFiles/controller.dir
   OBJECT_FILE_DIR = CMakeFiles/controller.dir/src
 
-build CMakeFiles/controller.dir/main.cpp.o: CXX_COMPILER__controller_unscanned_Debug /home/jake/Development/mtcp-w24-solution/main.cpp || cmake_object_order_depends_target_controller
-  DEP_FILE = CMakeFiles/controller.dir/main.cpp.o.d
+build CMakeFiles/controller.dir/controller.cpp.o: CXX_COMPILER__controller_unscanned_Debug /home/jake/Development/mtcp-w24-solution/controller.cpp || cmake_object_order_depends_target_controller
+  DEP_FILE = CMakeFiles/controller.dir/controller.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -I/home/jake/Development/mtcp-w24-solution/include
   OBJECT_DIR = CMakeFiles/controller.dir
@@ -154,7 +154,7 @@ build CMakeFiles/controller.dir/main.cpp.o: CXX_COMPILER__controller_unscanned_D
 #############################################
 # Link the executable controller
 
-build controller: CXX_EXECUTABLE_LINKER__controller_Debug CMakeFiles/controller.dir/src/mros_json.cpp.o CMakeFiles/controller.dir/main.cpp.o | libmtcp_lib.so || libmtcp_lib.so
+build controller: CXX_EXECUTABLE_LINKER__controller_Debug CMakeFiles/controller.dir/src/mros_json.cpp.o CMakeFiles/controller.dir/controller.cpp.o | libmtcp_lib.so || libmtcp_lib.so
   FLAGS = -g
   LINK_LIBRARIES = -Wl,-rpath,/home/jake/Development/mtcp-w24-solution/cmake-build-debug  libmtcp_lib.so
   OBJECT_DIR = CMakeFiles/controller.dir
@@ -162,6 +162,86 @@ build controller: CXX_EXECUTABLE_LINKER__controller_Debug CMakeFiles/controller.
   PRE_LINK = :
   TARGET_FILE = controller
   TARGET_PDB = controller.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target system
+
+
+#############################################
+# Order-only phony target for system
+
+build cmake_object_order_depends_target_system: phony || cmake_object_order_depends_target_mtcp_lib
+
+build CMakeFiles/system.dir/src/mros_json.cpp.o: CXX_COMPILER__system_unscanned_Debug /home/jake/Development/mtcp-w24-solution/src/mros_json.cpp || cmake_object_order_depends_target_system
+  DEP_FILE = CMakeFiles/system.dir/src/mros_json.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/jake/Development/mtcp-w24-solution/include
+  OBJECT_DIR = CMakeFiles/system.dir
+  OBJECT_FILE_DIR = CMakeFiles/system.dir/src
+
+build CMakeFiles/system.dir/system.cpp.o: CXX_COMPILER__system_unscanned_Debug /home/jake/Development/mtcp-w24-solution/system.cpp || cmake_object_order_depends_target_system
+  DEP_FILE = CMakeFiles/system.dir/system.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/jake/Development/mtcp-w24-solution/include
+  OBJECT_DIR = CMakeFiles/system.dir
+  OBJECT_FILE_DIR = CMakeFiles/system.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target system
+
+
+#############################################
+# Link the executable system
+
+build system: CXX_EXECUTABLE_LINKER__system_Debug CMakeFiles/system.dir/src/mros_json.cpp.o CMakeFiles/system.dir/system.cpp.o | libmtcp_lib.so || libmtcp_lib.so
+  FLAGS = -g
+  LINK_LIBRARIES = -Wl,-rpath,/home/jake/Development/mtcp-w24-solution/cmake-build-debug  libmtcp_lib.so
+  OBJECT_DIR = CMakeFiles/system.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = system
+  TARGET_PDB = system.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test_json_reader
+
+
+#############################################
+# Order-only phony target for test_json_reader
+
+build cmake_object_order_depends_target_test_json_reader: phony || cmake_object_order_depends_target_mtcp_lib
+
+build CMakeFiles/test_json_reader.dir/src/mros_json.cpp.o: CXX_COMPILER__test_json_reader_unscanned_Debug /home/jake/Development/mtcp-w24-solution/src/mros_json.cpp || cmake_object_order_depends_target_test_json_reader
+  DEP_FILE = CMakeFiles/test_json_reader.dir/src/mros_json.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/jake/Development/mtcp-w24-solution/include
+  OBJECT_DIR = CMakeFiles/test_json_reader.dir
+  OBJECT_FILE_DIR = CMakeFiles/test_json_reader.dir/src
+
+build CMakeFiles/test_json_reader.dir/test/json_reader.cpp.o: CXX_COMPILER__test_json_reader_unscanned_Debug /home/jake/Development/mtcp-w24-solution/test/json_reader.cpp || cmake_object_order_depends_target_test_json_reader
+  DEP_FILE = CMakeFiles/test_json_reader.dir/test/json_reader.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/jake/Development/mtcp-w24-solution/include
+  OBJECT_DIR = CMakeFiles/test_json_reader.dir
+  OBJECT_FILE_DIR = CMakeFiles/test_json_reader.dir/test
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_json_reader
+
+
+#############################################
+# Link the executable test_json_reader
+
+build test_json_reader: CXX_EXECUTABLE_LINKER__test_json_reader_Debug CMakeFiles/test_json_reader.dir/src/mros_json.cpp.o CMakeFiles/test_json_reader.dir/test/json_reader.cpp.o | libmtcp_lib.so || libmtcp_lib.so
+  FLAGS = -g
+  LINK_LIBRARIES = -Wl,-rpath,/home/jake/Development/mtcp-w24-solution/cmake-build-debug  libmtcp_lib.so
+  OBJECT_DIR = CMakeFiles/test_json_reader.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = test_json_reader
+  TARGET_PDB = test_json_reader.dbg
 
 
 #############################################
@@ -199,7 +279,7 @@ build mtcp_lib: phony libmtcp_lib.so
 #############################################
 # Folder: /home/jake/Development/mtcp-w24-solution/cmake-build-debug
 
-build all: phony libmtcp_lib.so controller
+build all: phony libmtcp_lib.so controller system test_json_reader
 
 # =============================================================================
 # Built-in targets

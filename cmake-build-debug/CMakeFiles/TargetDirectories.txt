@@ -1,4 +1,6 @@
 /home/jake/Development/mtcp-w24-solution/cmake-build-debug/CMakeFiles/mtcp_lib.dir
 /home/jake/Development/mtcp-w24-solution/cmake-build-debug/CMakeFiles/controller.dir
+/home/jake/Development/mtcp-w24-solution/cmake-build-debug/CMakeFiles/system.dir
+/home/jake/Development/mtcp-w24-solution/cmake-build-debug/CMakeFiles/test_json_reader.dir
 /home/jake/Development/mtcp-w24-solution/cmake-build-debug/CMakeFiles/edit_cache.dir
 /home/jake/Development/mtcp-w24-solution/cmake-build-debug/CMakeFiles/rebuild_cache.dir

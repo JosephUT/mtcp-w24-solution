@@ -1,16 +1,18 @@
 # ninja log v5
+3	1048	1705070530882342331	CMakeFiles/test_json_reader.dir/test/json_reader.cpp.o	18d5b68547e3c24a
 5	50	1704935245867465558	CMakeFiles/mtcp_lib.dir/src/socket/connection_socket.cpp.o	8b401ceac12f4bdd
 1	29	1704935036239186731	CMakeFiles/mtcp.dir/src/socket/socket.cpp.o	bd01e066181205dd
+2	1246	1705070531076341688	CMakeFiles/test_json_reader.dir/src/mros_json.cpp.o	83bec463d3cbae60
 1	2369	1704930468379943618	CMakeFiles/mros_json.dir/mros_json.cpp.o	b8bc4c1674441a18
 0	1907	1704930467920942420	CMakeFiles/mros_json.dir/main.cpp.o	c17e7b9f39b7f337
-5	679	1704935246496466379	CMakeFiles/mtcp_lib.dir/src/socket/message_socket/message_socket.cpp.o	75f44de42a3ca900
 3	655	1704935086003253608	CMakeFiles/mtcp.dir/src/socket/message_socket/message_socket.cpp.o	96b0a89036138e4
-1	55	1704935753187712142	build.ninja	a38c26613b4c70e0
-3	1234	1704935372246630648	CMakeFiles/controller.dir/src/mros_json.cpp.o	5ec0b7a6a1829159
+5	679	1704935246496466379	CMakeFiles/mtcp_lib.dir/src/socket/message_socket/message_socket.cpp.o	75f44de42a3ca900
+0	42	1705071018663390072	build.ninja	a38c26613b4c70e0
+3	1929	1705070171062498761	CMakeFiles/controller.dir/src/mros_json.cpp.o	5ec0b7a6a1829159
 3	33	1704935036243186737	CMakeFiles/mtcp.dir/src/socket/connection_socket.cpp.o	1c448d80db10ed32
-1234	1358	1704935372373630813	controller	a3fa71ea7c2acb63
+1929	2125	1705070171262497872	controller	a3fa71ea7c2acb63
 4	521	1704935085869253428	CMakeFiles/mtcp.dir/src/socket/message_socket/connection_message_socket.cpp.o	c325984fa2321560
-6	1236	1704935247051467104	CMakeFiles/controller.dir/main.cpp.o	2cdf0d79a9a5a6f3
+3	1626	1705070170765500083	CMakeFiles/controller.dir/main.cpp.o	2cdf0d79a9a5a6f3
 2	392	1704935036602187219	CMakeFiles/mtcp.dir/src/socket/client_socket.cpp.o	fb2895485bc32f4e
 743	858	1704935246673466611	libmtcp_lib.so	a7db7ed766f8aa48
 608	728	1704935121361301125	libmtcp.so	80fa64d7549c5c47
@@ -22,3 +24,4 @@
 4	433	1704935246250466058	CMakeFiles/mtcp_lib.dir/src/socket/client_socket.cpp.o	7b235c5e0c61d0bb
 2	43	1704935245859465547	CMakeFiles/mtcp_lib.dir/src/socket/socket.cpp.o	7e8345e49b1b7525
 6	591	1704935246408466265	CMakeFiles/mtcp_lib.dir/src/socket/message_socket/client_message_socket.cpp.o	4875cb1a081abfa5
+1246	1362	1705070531195341293	test_json_reader	96db264c5f0c0eab

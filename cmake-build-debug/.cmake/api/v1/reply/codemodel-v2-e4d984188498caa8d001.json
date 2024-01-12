@@ -16,7 +16,9 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2,
+						3
 					]
 				}
 			],
@@ -32,7 +34,9 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2,
+						3
 					]
 				}
 			],
@@ -41,7 +45,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "controller::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-controller-Debug-6effa7664a5f3894e837.json",
+					"jsonFile" : "target-controller-Debug-d4df4783733d5a0e0f70.json",
 					"name" : "controller",
 					"projectIndex" : 0
 				},
@@ -50,6 +54,20 @@
 					"id" : "mtcp_lib::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-mtcp_lib-Debug-2e23e3b494435189719a.json",
 					"name" : "mtcp_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "system::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-system-Debug-082506d8d5aeb13c67d4.json",
+					"name" : "system",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_json_reader::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_json_reader-Debug-e0303d0f1f2566128cb8.json",
+					"name" : "test_json_reader",
 					"projectIndex" : 0
 				}
 			]
