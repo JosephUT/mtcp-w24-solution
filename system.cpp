@@ -4,29 +4,15 @@
 #include <csignal>
 #include <cmath>
 #include <iostream>
+#include <messageTypes/pose.hpp>
+#include <messageTypes/twist.hpp>
+#include <systemUtils.hpp>
 
 bool status = true;
+
 static void signalHandler(int signal) {
     status = false;
 }
-
-
-/**
- * Converts contiguous vector to matrix. Matrix is always square
- * @param vector matrix in contiguous form
- * @return matrix
- */
-std::vector<std::vector<double>> vector2matrix(std::vector<double> const& vector) {
-    std::size_t const squareDim = static_cast<std::size_t>(std::sqrt(vector.size()));
-    std::vector<std::vector<double>> matrix(squareDim, std::vector<double>(squareDim, 0));
-    for (size_t row = 0; row < squareDim; ++row) {
-        for (size_t col = 0; col < squareDim; ++col) {
-            matrix[row][col] = vector[squareDim * row + col];
-        }
-    }
-    return matrix;
-}
-
 
 
 int main() {
@@ -34,6 +20,7 @@ int main() {
     std::string const kServerAddress = "127.0.0.1";
     int const kServerPort = 13349;
     int const kBacklogSize = 20;
+    Messages::Pose2d current_pose{};
 
     std::signal(SIGINT, signalHandler);
 
@@ -42,27 +29,23 @@ int main() {
     std::shared_ptr<ConnectionMessageSocket> monitorConnectionMessageSocket;
 
     while (status) {
-        if (!controllerConnectionMessageSocket) {
+        do {
             controllerConnectionMessageSocket = server_socket->acceptConnection<ConnectionMessageSocket>();
-        }
-        if (!monitorConnectionMessageSocket) {
+        } while (!controllerConnectionMessageSocket);
+
+        do {
             monitorConnectionMessageSocket = server_socket->acceptConnection<ConnectionMessageSocket>();
-        }
+        } while (!monitorConnectionMessageSocket);
+
         while (status) {
             std::string recvMessage = controllerConnectionMessageSocket->receiveMessage();
             Json recvJson = Json::fromString(recvMessage);
             // Do something with the Json
-            std::vector<double> contiguousMatrix = recvJson["twist"].get<std::vector<double>>();
-            std::vector<std::vector<double>> matrix = vector2matrix(contiguousMatrix);
-            for (auto const& vec : matrix) {
-                for (double const val : vec) {
-                    std::cout << val << ' ';
-                }
-                std::cout << std::endl;
-            }
-
-            // End
-
+            Messages::Twist2d twistMsg = recvJson;
+            current_pose = mutatePose(twistMsg, current_pose);
+            Json sendJson;
+            sendJson = current_pose;
+            monitorConnectionMessageSocket->sendMessage(sendJson.toString());
         }
     }
     controllerConnectionMessageSocket->close();

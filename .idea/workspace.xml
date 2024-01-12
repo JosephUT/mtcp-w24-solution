@@ -14,6 +14,7 @@
       <config projectName="mtcp" targetName="mtcp_lib" />
       <config projectName="mtcp" targetName="test_json_reader" />
       <config projectName="mtcp" targetName="system" />
+      <config projectName="mtcp" targetName="test_json_conversions" />
       <config projectName="mtcp" targetName="controller" />
     </generated>
   </component>
@@ -26,21 +27,11 @@
     <list default="true" id="d0606f15-95f2-4737-8a95-fb35f1d7515f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-3f440ceed062a197ae67.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2024-01-11T01-15-53-0202.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/controller.dir/src/mros_json.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/controller.dir/src/mros_json.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/controller" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/controller.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/pose1.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/pose2.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/pose3.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/twist1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/controller.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/mros_json.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/include/mros_json.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pose.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/socket/server_socket.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/socket/server_socket.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/system.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +62,7 @@
   "keyToString": {
     "CMake Application.controller.executor": "Run",
     "CMake Application.mros_json.executor": "Run",
+    "CMake Application.test_json_conversions.executor": "Run",
     "CMake Application.test_json_reader.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -91,10 +83,10 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="CMake Application.test_json_reader">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+  <component name="RunManager" selected="CMake Application.test_json_conversions">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="controller" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mtcp" TARGET_NAME="controller" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="mtcp" RUN_TARGET_NAME="controller">
@@ -112,6 +104,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test_json_conversions" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mtcp" TARGET_NAME="test_json_conversions" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="mtcp" RUN_TARGET_NAME="test_json_conversions">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="test_json_reader" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mtcp" TARGET_NAME="test_json_reader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="mtcp" RUN_TARGET_NAME="test_json_reader">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -121,6 +118,7 @@
       <item itemvalue="CMake Application.controller" />
       <item itemvalue="CMake Application.mtcp_lib" />
       <item itemvalue="CMake Application.system" />
+      <item itemvalue="CMake Application.test_json_conversions" />
       <item itemvalue="CMake Application.test_json_reader" />
     </list>
   </component>
@@ -144,7 +142,8 @@
       <workItem from="1704929023047" duration="990000" />
       <workItem from="1704930431803" duration="2342000" />
       <workItem from="1704935752434" duration="250000" />
-      <workItem from="1705069718796" duration="5657000" />
+      <workItem from="1705069718796" duration="6026000" />
+      <workItem from="1705079351259" duration="6354000" />
     </task>
     <servers />
   </component>

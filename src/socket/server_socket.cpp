@@ -43,7 +43,7 @@ std::shared_ptr<ConnectionSocket> ServerSocket::acceptConnection() {
       accept(file_descriptor_, reinterpret_cast<struct sockaddr*>(&client_address), &client_address_size);
   if (connection_file_descriptor == -1) {
     if (errno == EAGAIN || errno == EWOULDBLOCK) {
-      // Return null option if accept fails because backlog is empty.
+      // Return nullptr if accept fails because backlog is empty.
       return nullptr;
     }
     // Throw for other errors.

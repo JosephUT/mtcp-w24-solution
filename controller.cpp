@@ -2,7 +2,8 @@
 #include <mros_json.hpp>
 #include <socket/message_socket/client_message_socket.hpp>
 #include <memory>
-
+#include <fstream>
+#include <messageTypes/twist.hpp>
 
 int main() {
     int const kDomain = AF_INET;
@@ -11,6 +12,17 @@ int main() {
 
     auto client_sock = std::make_shared<ClientMessageSocket>(kDomain, kServerAddress, kServerPort);
     client_sock->connect();
+
+    double dx, dy, dtheta;
+    std::ifstream ifs("sensorReadings.txt");
+    while (ifs >> dx >> dy >> dtheta) {
+        Messages::Twist2d twistMsg = {dx, dy, dtheta};
+        Json twistJson;
+        twistJson = twistMsg;
+        client_sock->sendMessage(twistJson.toString());
+    }
+    client_sock->close();
+
 
     return 0;
 }

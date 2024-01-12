@@ -1,3 +1,6 @@
+#ifndef MROS_JSON_HPP
+#define MROS_JSON_HPP
+
 #include <map>
 #include <string>
 #include <variant>
@@ -127,6 +130,36 @@ public:
     Json &operator=(Json const &json) = default;
 
     /**
+     * Templated assignment operator for Message
+     * @tparam StructT Message Type in form of a struct. Requires static (to/from)Json functions
+     * @param struct_t Message Type
+     * @return Json
+     */
+    template<typename StructT>
+    requires requires (Json& json, StructT const& struct_t) {
+        {StructT::toJson(json, struct_t ) } -> std::same_as<void>;
+    }
+    Json &operator=(StructT const& struct_t) {
+        StructT::toJson(*this, struct_t);
+        return *this;
+    }
+
+    /**
+     * Templated assignment operator for any struct with Struct::fromJson
+     * @tparam StructT struct with aforementioned conversion functions
+     * @return converted json -> structT
+     */
+    template<typename StructT>
+    requires requires (StructT& struct_t, Json const& json) {
+        {StructT::fromJson(struct_t, json) } -> std::same_as<void>;
+    }
+    operator StructT() const {
+        StructT result;
+        StructT::fromJson(result, *this);
+        return result;
+    }
+
+    /**
      * Modifiable value reference to a Json::Value
      * @param key string key name
      * @return Json::Value reference
@@ -140,6 +173,11 @@ public:
      */
     Value const &operator[](std::string const &key) const;
 
+    /**
+     * Equality operator for json
+     * @param json json to compare with this
+     * @return true if all elements match, false otherwise
+     */
     bool operator==(Json const &json) const;
 
     /**
@@ -182,3 +220,5 @@ private:
      */
     static Json::Value getType2(std::string const& str);
 };
+
+#endif

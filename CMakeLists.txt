@@ -12,8 +12,14 @@ set(SOCKET_SOURCES
         src/socket/message_socket/connection_message_socket.cpp
 )
 
+set(MESSAGE_TYPES
+    include/messageTypes/pose.hpp
+    include/messageTypes/twist.hpp
+)
+
 add_library(mtcp_lib SHARED
         ${SOCKET_SOURCES}
+        ${MESSAGE_TYPES}
 )
 
 target_include_directories(mtcp_lib PUBLIC
@@ -47,4 +53,10 @@ add_executable(test_json_reader
 
 target_link_libraries(test_json_reader PUBLIC mtcp_lib)
 
+add_executable(test_json_conversions
+        src/mros_json.cpp
+        test/struct_json.cpp
+)
+
+target_link_libraries(test_json_conversions PUBLIC mtcp_lib)
 
