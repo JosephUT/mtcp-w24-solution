@@ -8,6 +8,9 @@
 #include <messageTypes/twist.hpp>
 #include <systemUtils.hpp>
 
+// Used for timer
+#include <chrono>
+#include <thread>
 bool status = true;
 
 static void signalHandler(int signal) {
@@ -16,11 +19,13 @@ static void signalHandler(int signal) {
 
 
 int main() {
+    // Controller info
     int const kDomain = AF_INET;
     std::string const kServerAddress = "127.0.0.1";
     int const kServerPort = 13349;
     int const kBacklogSize = 20;
     Messages::Pose2d current_pose{};
+
 
     std::signal(SIGINT, signalHandler);
 
@@ -28,12 +33,20 @@ int main() {
     std::shared_ptr<ConnectionMessageSocket> controllerConnectionMessageSocket;
     std::shared_ptr<ConnectionMessageSocket> monitorConnectionMessageSocket;
 
-
+    int monitorTimeout = 1;
+    int controllerTimeout = 1;
     do {
+        std::cout << "Attempting to connect to monitor" << std::endl;
         monitorConnectionMessageSocket = server_socket->acceptConnection<ConnectionMessageSocket>();
+        std::this_thread::sleep_for(std::chrono::seconds(monitorTimeout));
+        monitorTimeout *= monitorTimeout;
+
     } while (!monitorConnectionMessageSocket);
     do {
+        std::cout << "Attempting to connect to controller" << std::endl;
         controllerConnectionMessageSocket = server_socket->acceptConnection<ConnectionMessageSocket>();
+        std::this_thread::sleep_for(std::chrono::seconds(controllerTimeout));
+        controllerTimeout *= controllerTimeout;
     } while (!controllerConnectionMessageSocket);
 
     try {

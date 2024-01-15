@@ -17,6 +17,8 @@ set(MESSAGE_TYPES
     include/messageTypes/twist.hpp
 )
 
+find_package(Threads REQUIRED)
+
 add_library(mtcp_lib SHARED
         ${SOCKET_SOURCES}
         ${MESSAGE_TYPES}
