@@ -41,13 +41,13 @@ int main() {
         std::this_thread::sleep_for(std::chrono::seconds(monitorTimeout));
         monitorTimeout *= monitorTimeout;
 
-    } while (!monitorConnectionMessageSocket);
+    } while (!monitorConnectionMessageSocket && status);
     do {
         std::cout << "Attempting to connect to controller" << std::endl;
         controllerConnectionMessageSocket = server_socket->acceptConnection<ConnectionMessageSocket>();
         std::this_thread::sleep_for(std::chrono::seconds(controllerTimeout));
         controllerTimeout *= controllerTimeout;
-    } while (!controllerConnectionMessageSocket);
+    } while (!controllerConnectionMessageSocket && status);
 
     try {
         while (status) {

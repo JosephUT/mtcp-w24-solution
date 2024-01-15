@@ -25,16 +25,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0606f15-95f2-4737-8a95-fb35f1d7515f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/squirrel_sim-devel/.pre-commit-config.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/squirrel_sim-devel/.prettierrc.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/squirrel_sim-devel/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/squirrel_sim-devel/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/squirrel_sim-devel/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mros_json.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/squirrel_sim-devel/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/squirrel_sim-devel/run.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/system.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/system.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

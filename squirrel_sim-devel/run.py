@@ -13,14 +13,15 @@ async def echo(websocket):
         theta += 0.5
         await asyncio.sleep(2)
 
-async def squirrelSim(websocket):
+
+async def squirrel_sim(websocket):
     async for message in websocket:
         pose2D = json.loads(message)
         await websocket.send(json.dumps({"type": "pose2D", "pos": pose2D}))
 
 
 async def main():
-    async with serve(echo, "localhost", 8008):
+    async with serve(squirrel_sim, "localhost", 8008):
         await asyncio.Future()  # run forever
 
 asyncio.run(main())
