@@ -1,6 +1,9 @@
 #ifndef MROS_W24_SOLUTION_SOCKET_HPP
 #define MROS_W24_SOLUTION_SOCKET_HPP
 
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
 /**
  * Abstract base class for socket.
  */

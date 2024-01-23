@@ -5,6 +5,8 @@
 #include <fcntl.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
+#include <sys/types.h>
+#include <netdb.h>
 #include <unistd.h>
 
 #include <array>
@@ -34,7 +36,16 @@ class ServerSocket : public Socket {
    * @param listen_backlog The number of pending connections to allow before dropping new connections.
    * @throws SocketException Throws exception on failure of socket(), bind(), or listen().
    */
-  ServerSocket(int domain, const std::string &address, int port, int listen_backlog);
+  ServerSocket(int const domain, const std::string &address, int port, int const listen_backlog);
+
+  /**
+   * Initialize a server socket with unknown address information. Generates address information and
+   * calls the above constructor with the full set of argument
+   * @param domain The communication domain code to be used. Currently supports only AF_INET (IPv4).
+   * @param listen_backlog listen_backlog The number of pending connections to allow before dropping new connections.
+   * @throws SocketException Throws exception on failure of socket(), bind(), or listen().
+   */
+  ServerSocket(int domain, int listen_backlog);
 
   /**
    * Close socket file descriptor on destruction.
@@ -65,6 +76,13 @@ class ServerSocket : public Socket {
    * Boolean, true if socket file descriptor is open, false otherwise.
    */
   bool is_open_ = false;
+
+  /**
+   * Helper function to generate address and port
+   * @param domain The communication domain code to be used. Currently supports only AF_INET (IPv4).
+   * @return a pair of string, int with host and port respectively
+   */
+  static std::pair<std::string, int> getAddressInfo(int domain);
 };
 
 #endif  // MROS_W24_SOLUTION_SERVER_SOCKET_HPP

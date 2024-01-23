@@ -16,8 +16,9 @@ async def echo(websocket):
 
 async def squirrel_sim(websocket):
     async for message in websocket:
-        pose2D = json.loads(message)
-        await websocket.send(json.dumps({"type": "pose2D", "pos": pose2D}))
+        pose2d = json.loads(message)
+        print(f"Message received: {message}")
+        await websocket.send(json.dumps({"type": "pose2D", "pos": pose2d}))
 
 
 async def main():

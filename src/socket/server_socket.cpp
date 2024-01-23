@@ -1,5 +1,10 @@
 #include <socket/server_socket.hpp>
 
+ServerSocket::ServerSocket(int const domain, int const listen_backlog) {
+    auto results = ServerSocket::getAddressInfo(domain);
+    ServerSocket(domain, results.first, results.second, listen_backlog);
+}
+
 ServerSocket::ServerSocket(const int domain, const std::string& address, const int port, const int listen_backlog) {
   const char* host_address = address.c_str();
 
@@ -64,6 +69,28 @@ void ServerSocket::close() {
     int result = ::close(file_descriptor_);
     is_open_ = false;
   }
+}
+
+std::pair<std::string, int> ServerSocket::getAddressInfo(int domain) {
+    char const* hostname = "127.0.0.1";
+    char const* port = "0";
+
+    struct addrinfo* res = nullptr;
+    struct addrinfo address_info{0};
+
+    address_info.ai_family = AF_UNSPEC;
+    address_info.ai_socktype = SOCK_STREAM;
+    address_info.ai_flags = AI_PASSIVE;
+
+    int status = getaddrinfo(hostname, port, &address_info, &res);
+    if (status != 0) {
+        throw SocketErrnoException("Error fetching host and port information");
+    }
+
+    auto ipv4 = reinterpret_cast<struct sockaddr_in*>(res->ai_addr);
+    auto results = std::make_pair<std::string, int>(std::string(inet_ntoa(ipv4->sin_addr)), ntohs(ipv4->sin_port));
+    freeaddrinfo(res);
+    return results;
 }
 
 // Explicit instantiation to work with MessageSockets.
