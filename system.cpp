@@ -22,7 +22,7 @@ int main() {
     // Controller info
     int const kDomain = AF_INET;
     std::string const kServerAddress = "127.0.0.1";
-    int const kServerPort = 13349;
+    int const kServerPort = 13348;
     int const kBacklogSize = 20;
     Messages::Pose2d current_pose{};
 
