@@ -166,7 +166,7 @@ function updateRobot(dt, vx = 0.4, vtheta = 0.4) {
 }
 
 function init() {
-  socket = new WebSocket("ws://localhost:8008");
+  socket = new WebSocket("ws://localhost:13348");
 
   socket.addEventListener("open", function (event) {
     // socket.send('Connection Established');

@@ -4,8 +4,8 @@
 #include <memory>
 #include <fstream>
 #include <messageTypes/twist.hpp>
-
 int main() {
+
     try {
         int const kDomain = AF_INET;
         std::string const kServerAddress = "127.0.0.1";

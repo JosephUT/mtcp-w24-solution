@@ -48,7 +48,7 @@ int main() {
         std::this_thread::sleep_for(std::chrono::seconds(controllerTimeout));
         controllerTimeout *= controllerTimeout;
     } while (!controllerConnectionMessageSocket && status);
-
+    std::cout << "Connected to controller and monitor";
     try {
         while (status) {
             std::string recvMessage = controllerConnectionMessageSocket->receiveMessage();
@@ -60,7 +60,9 @@ int main() {
             sendJson = current_pose;
             monitorConnectionMessageSocket->sendMessage(sendJson.toString());
         }
-    } catch (std::exception const &) {}
+    } catch (std::exception const &e) {
+        std::cerr << e.what() << std::endl;
+    }
 
 
     controllerConnectionMessageSocket->close();

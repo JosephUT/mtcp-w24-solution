@@ -1,6 +1,12 @@
 {
   "dependencies": {
+    "three": "^0.160.1",
+    "websocket": "^1.0.34",
     "websockets": "^0.2.0",
     "ws": "^8.16.0"
-  }
+  },
+  "devDependencies": {
+    "vite": "^5.0.12"
+  },
+  "type": "module"
 }
