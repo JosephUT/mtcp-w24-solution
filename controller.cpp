@@ -20,6 +20,7 @@ int main() {
             Messages::Twist2d twistMsg = {dx, dy, dtheta};
             Json twistJson;
             twistJson = twistMsg;
+            twistJson["type"] = "pose2D";
             client_sock->sendMessage(twistJson.toString());
         }
         client_sock->close();

@@ -174,6 +174,7 @@ function init() {
 
   socket.addEventListener("message", function (event) {
     const data = JSON.parse(event.data);
+    console.log("data received".concat(data));
     if (data.type === "pose2D") {
         updateRobotPose(data.pos.x, data.pos.y, data.pos.theta);
     }

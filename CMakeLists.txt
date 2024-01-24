@@ -62,3 +62,24 @@ add_executable(test_json_conversions
 
 target_link_libraries(test_json_conversions PUBLIC mtcp_lib)
 
+add_executable(test_monitor_connection
+        src/mros_json.cpp
+        test_manual/test_monitor_connection.cpp
+)
+
+target_link_libraries(test_monitor_connection PUBLIC mtcp_lib)
+
+add_executable(test_server
+        src/mros_json.cpp
+        test_manual/test_server.cpp
+)
+
+target_link_libraries(test_server PUBLIC mtcp_lib)
+
+add_executable(test_client
+        src/mros_json.cpp
+        test_manual/test_client.cpp
+)
+
+target_link_libraries(test_client PRIVATE mtcp_lib)
+
