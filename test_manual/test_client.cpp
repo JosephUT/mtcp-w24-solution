@@ -30,6 +30,7 @@ int main() {
             Json msg;
             msg["message"] = "Hello World " + std::to_string(count++);
             std::cout << "Sent message" << std::endl;
+            client_sock->sendMessage(msg.toString());
             std::this_thread::sleep_for(1s);
         }
         client_sock->close();
