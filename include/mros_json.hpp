@@ -150,7 +150,7 @@ public:
      * @return converted json -> structT
      */
     template<typename StructT>
-    requires requires (StructT& struct_t, Json const& json) {
+    requires (StructT& struct_t, Json const& json) {
         {StructT::fromJson(struct_t, json) } -> std::same_as<void>;
     }
     operator StructT() const {

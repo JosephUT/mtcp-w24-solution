@@ -22,7 +22,7 @@ async def squirrel_sim(websocket):
 
 
 async def main():
-    async with serve(squirrel_sim, "localhost", 8008):
+    async with serve(squirrel_sim, "localhost", 8009):
         await asyncio.Future()  # run forever
 
 asyncio.run(main())
