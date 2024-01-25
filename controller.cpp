@@ -4,8 +4,8 @@
 #include <memory>
 #include <fstream>
 #include <messageTypes/twist.hpp>
-
 int main() {
+
     try {
         int const kDomain = AF_INET;
         std::string const kServerAddress = "127.0.0.1";
@@ -20,6 +20,7 @@ int main() {
             Messages::Twist2d twistMsg = {dx, dy, dtheta};
             Json twistJson;
             twistJson = twistMsg;
+            twistJson["type"] = "pose2D";
             client_sock->sendMessage(twistJson.toString());
         }
         client_sock->close();

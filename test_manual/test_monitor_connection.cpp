@@ -2,11 +2,12 @@
 #include <socket/message_socket/connection_message_socket.hpp>
 #include <mros_json.hpp>
 #include <csignal>
-#include <cmath>
+#include <fstream>
 #include <iostream>
 #include <messageTypes/pose.hpp>
 #include <messageTypes/twist.hpp>
 #include <systemUtils.hpp>
+
 
 // Used for timer
 #include <chrono>
@@ -30,7 +31,6 @@ int main() {
     std::signal(SIGINT, signalHandler);
 
     auto server_socket = std::make_shared<ServerSocket>(kDomain, kServerAddress, kServerPort, kBacklogSize);
-    std::shared_ptr<ConnectionMessageSocket> controllerConnectionMessageSocket;
     std::shared_ptr<ConnectionMessageSocket> monitorConnectionMessageSocket;
 
     int monitorTimeout = 1;
@@ -42,30 +42,24 @@ int main() {
         monitorTimeout *= monitorTimeout;
 
     } while (!monitorConnectionMessageSocket && status);
-    do {
-        std::cout << "Attempting to connect to controller" << std::endl;
-        controllerConnectionMessageSocket = server_socket->acceptConnection<ConnectionMessageSocket>();
-        std::this_thread::sleep_for(std::chrono::seconds(controllerTimeout));
-        controllerTimeout *= controllerTimeout;
-    } while (!controllerConnectionMessageSocket && status);
     std::cout << "Connected to controller and monitor";
     try {
-        while (status) {
-            std::string recvMessage = controllerConnectionMessageSocket->receiveMessage();
-            Json recvJson = Json::fromString(recvMessage);
+        double dx, dy, dtheta;
+        std::cout << "Input data: dx, dy, dtheta" << std::endl;
+        while (std::cin >> dx >> dy >> dtheta) {
             // Do something with the Json
-            Messages::Twist2d twistMsg = recvJson;
+            Messages::Twist2d twistMsg{dx, dy, dtheta};
             current_pose = mutatePose(twistMsg, current_pose);
             Json sendJson;
             sendJson = current_pose;
+            sendJson["type"] = "pose2D";
             monitorConnectionMessageSocket->sendMessage(sendJson.toString());
+            std::cout << "Input data: dx, dy, dtheta" << std::endl;
         }
     } catch (std::exception const &e) {
         std::cerr << e.what() << std::endl;
     }
 
-
-    controllerConnectionMessageSocket->close();
     monitorConnectionMessageSocket->close();
     server_socket->close();
 

@@ -11,11 +11,14 @@
   </component>
   <component name="CMakeRunConfigurationManager">
     <generated>
+      <config projectName="mtcp" targetName="test_server" />
       <config projectName="mtcp" targetName="mtcp_lib" />
       <config projectName="mtcp" targetName="test_json_reader" />
       <config projectName="mtcp" targetName="system" />
       <config projectName="mtcp" targetName="test_json_conversions" />
+      <config projectName="mtcp" targetName="test_monitor_connection" />
       <config projectName="mtcp" targetName="controller" />
+      <config projectName="mtcp" targetName="test_client" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -25,6 +28,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0606f15-95f2-4737-8a95-fb35f1d7515f" name="Changes" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/squirrel_sim-devel/bridge/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
@@ -33,6 +37,15 @@
       <change beforePath="$PROJECT_DIR$/include/socket/message_socket/connection_message_socket.hpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/include/socket/message_socket/message_socket.hpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/squirrel_sim-devel/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/squirrel_sim-devel/run.py" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/test_manual/test_client.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_manual/test_monitor_connection.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_manual/test_server.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/controller.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/squirrel_sim-devel/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/squirrel_sim-devel/main.js" afterDir="false" />
+>>>>>>> 27879f64eed7ac0b7a8434d7f3c2eba9a42ee789
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +59,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
+=======
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file:///usr/include/c++/13/bits/allocator.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file:///usr/include/c++/13/bits/basic_string.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file:///usr/include/c++/13/bits/char_traits.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file:///usr/include/c++/13/bits/move.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file:///usr/include/c++/13/bits/new_allocator.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file:///usr/include/c++/13/bits/ptr_traits.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file:///usr/include/c++/13/bits/shared_ptr_base.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file:///usr/include/c++/13/type_traits" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file:///usr/include/c++/13/x86_64-redhat-linux/bits/c++config.h" root0="FORCE_HIGHLIGHTING" />
+  </component>
+>>>>>>> 27879f64eed7ac0b7a8434d7f3c2eba9a42ee789
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -62,32 +89,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;CMake Application.controller.executor&quot;: &quot;Run&quot;,
-    &quot;CMake Application.mros_json.executor&quot;: &quot;Run&quot;,
-    &quot;CMake Application.test_json_conversions.executor&quot;: &quot;Run&quot;,
-    &quot;CMake Application.test_json_reader.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;cf.advertisement.text.has.clang-format&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;squirrel__integration&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/jake/Development/mtcp-w24-solution/.venv/bin/python&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "CMake Application.controller.executor": "Run",
+    "CMake Application.mros_json.executor": "Run",
+    "CMake Application.system.executor": "Run",
+    "CMake Application.test_json_conversions.executor": "Run",
+    "CMake Application.test_json_reader.executor": "Run",
+    "CMake Application.test_server.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "cf.advertisement.text.has.clang-format": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "squirrel__integration",
+    "last_opened_file_path": "/home/jake/Development/mtcp-w24-solution",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="CMake Application.system">
+}]]></component>
+  <component name="RunManager" selected="CMake Application.test_server">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="controller" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mtcp" TARGET_NAME="controller" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="mtcp" RUN_TARGET_NAME="controller">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -103,6 +138,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test_client" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mtcp" TARGET_NAME="test_client" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="mtcp" RUN_TARGET_NAME="test_client">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="test_json_conversions" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mtcp" TARGET_NAME="test_json_conversions" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="mtcp" RUN_TARGET_NAME="test_json_conversions">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -113,12 +153,25 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test_monitor_connection" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mtcp" TARGET_NAME="test_monitor_connection" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="mtcp" RUN_TARGET_NAME="test_monitor_connection">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_server" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mtcp" TARGET_NAME="test_server" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="mtcp" RUN_TARGET_NAME="test_server">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="CMake Application.controller" />
       <item itemvalue="CMake Application.mtcp_lib" />
       <item itemvalue="CMake Application.system" />
+      <item itemvalue="CMake Application.test_client" />
       <item itemvalue="CMake Application.test_json_conversions" />
       <item itemvalue="CMake Application.test_json_reader" />
+      <item itemvalue="CMake Application.test_monitor_connection" />
+      <item itemvalue="CMake Application.test_server" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -153,9 +206,15 @@
       <workItem from="1705849602088" duration="126000" />
       <workItem from="1705972134706" duration="1772000" />
       <workItem from="1705974855644" duration="8000" />
+<<<<<<< HEAD
       <workItem from="1706035308163" duration="297000" />
       <workItem from="1706150836827" duration="262000" />
       <workItem from="1706161671490" duration="349000" />
+=======
+      <workItem from="1706035308163" duration="1095000" />
+      <workItem from="1706134591745" duration="2048000" />
+      <workItem from="1706136825673" duration="2591000" />
+>>>>>>> 27879f64eed7ac0b7a8434d7f3c2eba9a42ee789
     </task>
     <servers />
   </component>
@@ -167,6 +226,7 @@
     <isAutomaticFoundErrors value="true" />
     <isAutomaticReloadCMake value="true" />
   </component>
+<<<<<<< HEAD
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -189,5 +249,27 @@
         </entry>
       </map>
     </option>
+=======
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/test_manual/test_server.cpp</url>
+          <line>27</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/socket/message_socket/message_socket.cpp</url>
+          <line>40</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/socket/message_socket/message_socket.cpp</url>
+          <line>54</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+>>>>>>> 27879f64eed7ac0b7a8434d7f3c2eba9a42ee789
   </component>
 </project>

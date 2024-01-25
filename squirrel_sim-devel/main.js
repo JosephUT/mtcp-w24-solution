@@ -166,7 +166,7 @@ function updateRobot(dt, vx = 0.4, vtheta = 0.4) {
 }
 
 function init() {
-  socket = new WebSocket("ws://localhost:8008");
+  socket = new WebSocket("ws://localhost:13348");
 
   socket.addEventListener("open", function (event) {
     // socket.send('Connection Established');
@@ -174,6 +174,7 @@ function init() {
 
   socket.addEventListener("message", function (event) {
     const data = JSON.parse(event.data);
+    console.log("data received".concat(data));
     if (data.type === "pose2D") {
         updateRobotPose(data.pos.x, data.pos.y, data.pos.theta);
     }
