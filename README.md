@@ -15,7 +15,7 @@ Due 11:59PM Feb 9, 2024
 
 ## 5. Controller and System
 
-# Running the P1 Simulator  
+## Running the P1 Simulator  
 The P1 Simulator is an extremely basic visualizer that you can use to see the updates made to the system's pose.
 It is composed of an HTML and JavaScript webpage that connects to a Python bridge script. The bridge and the webpage
 connect via WebSockets, which implement a communication protocol on top of TCP/IP just like MessageSockets - Only much 
@@ -47,7 +47,7 @@ tests should pass after completion.
 
 The controller and system can be tested manually by running the simulator and then running the contoller and system.
 
-### Testing the Controller and System
+## Testing the Controller and System
 
 # Grading and Submission
 Points for this project will be assigned as follows.
