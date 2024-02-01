@@ -1,5 +1,4 @@
-#ifndef MROS_W24_SOLUTION_SOCKET_HPP
-#define MROS_W24_SOLUTION_SOCKET_HPP
+#pragma once
 
 #ifndef _GNU_SOURCE
 #define _GNU_SOURCE
@@ -30,5 +29,3 @@ class Socket {
    */
   int file_descriptor_;
 };
-
-#endif  // MROS_W24_SOLUTION_SOCKET_HPP

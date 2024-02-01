@@ -1,7 +1,6 @@
-#ifndef MROS_W24_SOLUTION_CONNECTION_SOCKET_HPP
-#define MROS_W24_SOLUTION_CONNECTION_SOCKET_HPP
+#pragma once
 
-#include <socket/socket.hpp>
+#include "socket/socket.hpp"
 
 /**
  *  Abstract base class for "connection sockets" which are produced by server sockets calling accept().
@@ -24,5 +23,3 @@ class ConnectionSocket : virtual public Socket {
    */
   ~ConnectionSocket() override = 0;
 };
-
-#endif  // MROS_W24_SOLUTION_CONNECTION_SOCKET_HPP

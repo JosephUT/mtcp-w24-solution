@@ -1,14 +1,14 @@
-#ifndef MROS_W24_SOLUTION_CLIENT_SOCKET_HPP
-#define MROS_W24_SOLUTION_CLIENT_SOCKET_HPP
+#pragma once
 
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
 #include <unistd.h>
 
-#include <socket/socket.hpp>
-#include <socket/utils/socket_exception.hpp>
 #include <string>
+
+#include "socket/socket.hpp"
+#include "socket/utils/socket_exception.hpp"
 
 /**
  * Abstract class wrapping client sockets.
@@ -41,5 +41,3 @@ class ClientSocket : virtual public Socket {
    */
   sockaddr_in server_address_;
 };
-
-#endif  // MROS_W24_SOLUTION_CLIENT_SOCKET_HPP

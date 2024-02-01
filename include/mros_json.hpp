@@ -1,5 +1,4 @@
-#ifndef MROS_JSON_HPP
-#define MROS_JSON_HPP
+#pragma once
 
 #include <map>
 #include <string>
@@ -9,7 +8,7 @@
 #include <sstream>
 
 /**
- * Simple JSON parser. Supports integer, double, bool, and std::string types.
+ * Simple JSON parser. Supports integer, double, and std::string types.
  */
 class Json {
 public:
@@ -182,7 +181,7 @@ public:
     bool operator==(Json const &json) const;
 
     /**
-     * Convert Json object to string in JSON format.
+     * Convert Json object to string in JSON format. The keys should be output in alphabetical order.
      * @return The string representation of the Json.
      */
     std::string toString() const;
@@ -209,18 +208,9 @@ private:
     static std::string stringify(Json::Value const &value);
 
     /**
-     * Helper function to take string and convert to Json::Value type
-     * @param str string of value
-     * @return Json::Value with proper type
+     * Helper function to take string and convert to a Json::Value of the correct type.
+     * @param str The string to convert to a Value.
+     * @return Json::Value with proper type.
      */
     static Json::Value getType(std::string const& str);
-
-    /**
-     * Sample second implementation of Json::getType
-     * @param str string of value
-     * @return Json::Value with proper type
-     */
-    static Json::Value getType2(std::string const& str);
 };
-
-#endif

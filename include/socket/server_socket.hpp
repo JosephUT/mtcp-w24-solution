@@ -1,5 +1,4 @@
-#ifndef MROS_W24_SOLUTION_SERVER_SOCKET_HPP
-#define MROS_W24_SOLUTION_SERVER_SOCKET_HPP
+#pragma once
 
 #include <arpa/inet.h>
 #include <fcntl.h>
@@ -13,13 +12,13 @@
 #include <cerrno>
 #include <cstring>
 #include <memory>
-#include <optional>
-#include <socket/connection_socket.hpp>
-#include <socket/message_socket/connection_message_socket.hpp>
-#include <socket/socket.hpp>
-#include <socket/utils/socket_exception.hpp>
 #include <string>
 #include <type_traits>
+
+#include "socket/connection_socket.hpp"
+#include "socket/message_socket/connection_message_socket.hpp"
+#include "socket/socket.hpp"
+#include "socket/utils/socket_exception.hpp"
 
 /**
  * Class wrapping server sockets. Accepts client connect() calls and returns connected sockets, which should be passed
@@ -84,5 +83,3 @@ class ServerSocket : public Socket {
    */
   static std::pair<std::string, int> getAddressInfo(int domain);
 };
-
-#endif  // MROS_W24_SOLUTION_SERVER_SOCKET_HPP

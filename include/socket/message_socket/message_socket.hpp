@@ -1,5 +1,4 @@
-#ifndef MROS_W24_SOLUTION_MESSAGE_SOCKET_HPP
-#define MROS_W24_SOLUTION_MESSAGE_SOCKET_HPP
+#pragma once
 
 #include <poll.h>
 #include <sys/socket.h>
@@ -7,12 +6,13 @@
 
 #include <array>
 #include <queue>
-#include <socket/socket.hpp>
-#include <socket/utils/peer_closed_exception.hpp>
-#include <socket/utils/socket_errno_exception.hpp>
-#include <socket/utils/socket_exception.hpp>
 #include <sstream>
 #include <string>
+
+#include "socket/socket.hpp"
+#include "socket/utils/peer_closed_exception.hpp"
+#include "socket/utils/socket_errno_exception.hpp"
+#include "socket/utils/socket_exception.hpp"
 
 /**
  * Abstract mixin class to provide framed string messages over SOCK_STREAM connections. Implementation is not
@@ -82,5 +82,3 @@ class MessageSocket : virtual public Socket {
    */
   static constexpr const char kDelimitingCharacter_ = '\n';
 };
-
-#endif  // MROS_W24_SOLUTION_MESSAGE_SOCKET_HPP

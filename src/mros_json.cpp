@@ -247,18 +247,3 @@ Json::Value Json::getType(const std::string &str) {
         return str;
     }
 }
-
-Json::Value Json::getType2(const std::string &str) {
-    try {
-        std::istringstream iss(str);
-        char next;
-        if (iss >> std::ws >> next && iss.eof()) {
-            return std::stoi(str);
-        } else {
-            return std::stod(str);
-        }
-    } catch (const std::invalid_argument &) {
-        // Treat as string if conversion fails
-        return str;
-    }
-}

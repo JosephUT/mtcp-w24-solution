@@ -1,10 +1,9 @@
-#ifndef MROS_CONNECTION_MESSAGE_SOCKET_HPP
-#define MROS_CONNECTION_MESSAGE_SOCKET_HPP
+#pragma once
 
 #include <unistd.h>
 
-#include <socket/connection_socket.hpp>
-#include <socket/message_socket/message_socket.hpp>
+#include "socket/connection_socket.hpp"
+#include "socket/message_socket/message_socket.hpp"
 
 /**
  * Socket class combining string messaging functionality with connection socket style construction.
@@ -27,5 +26,3 @@ class ConnectionMessageSocket : virtual public ConnectionSocket, virtual public 
    */
   ~ConnectionMessageSocket() override = default;
 };
-
-#endif  // MROS_CONNECTION_MESSAGE_SOCKET_HPP

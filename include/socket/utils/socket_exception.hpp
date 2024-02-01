@@ -1,5 +1,4 @@
-#ifndef MROS_W24_SOLUTION_SOCKET_EXCEPTION_HPP
-#define MROS_W24_SOLUTION_SOCKET_EXCEPTION_HPP
+#pragma once
 
 #include <stdexcept>
 #include <string>
@@ -16,5 +15,3 @@ class SocketException : public std::runtime_error {
   explicit SocketException(const std::string& error_message)
       : std::runtime_error("SocketException: " + error_message) {}
 };
-
-#endif  // MROS_W24_SOLUTION_SOCKET_EXCEPTION_HPP

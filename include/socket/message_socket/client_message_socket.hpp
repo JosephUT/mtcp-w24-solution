@@ -1,10 +1,9 @@
-#ifndef MROS_CLIENT_MESSAGE_SOCKET_HPP
-#define MROS_CLIENT_MESSAGE_SOCKET_HPP
+#pragma once
 
 #include <unistd.h>
 
-#include <socket/client_socket.hpp>
-#include <socket/message_socket/message_socket.hpp>
+#include "socket/client_socket.hpp"
+#include "socket/message_socket/message_socket.hpp"
 
 /**
  * Socket class combining string messaging functionality and client style construction.
@@ -25,5 +24,3 @@ class ClientMessageSocket : virtual public ClientSocket, virtual public MessageS
    */
   ~ClientMessageSocket() override = default;
 };
-
-#endif  // MROS_CLIENT_MESSAGE_SOCKET_HPP

@@ -1,6 +1,6 @@
-#include <gtest/gtest.h>
-
 #include <string>
+
+#include <gtest/gtest.h>
 
 #include "socket/message_socket/client_message_socket.hpp"
 #include "socket/message_socket/connection_message_socket.hpp"
