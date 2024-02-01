@@ -69,8 +69,8 @@ A list of the purpose of each file in the template, provided for clarity and con
 in are marked **TODO**. You may also make modifications to private members in some of the header files not marked, as described above.
 
 - `data/control_inputs.txt`: Twist commands to read into the controller.
-- `include/messages/pose.hpp`: Definition of pose message.
-- `include/messages/twist.hpp`: Definition of twist message.
+- `include/messages/pose.hpp`: Definition of pose message. **TODO**
+- `include/messages/twist.hpp`: Definition of twist message. **TODO**
 - `include/socket/message_socket/client_message_socket.hpp`: Definition of client message socket.
 - `include/socket/message_socket/connection_message_socket.hpp`: Definition of connection message socket.
 - `include/socket/message_socket/message_socket.hpp`: Definition of message socket.
@@ -86,22 +86,22 @@ in are marked **TODO**. You may also make modifications to private members in so
 - `simulator/bridge.py`: Bridge program to connect the system to the simulator webpage.
 - `simulator/index.html`: HTML file for the simulator webpage.
 - `simulator/main.js`: JavaScript file for the simulator webpage.
-- `src/socket/message_socket/client_message_socket.cpp`: Source of client message socket.
-- `src/socket/message_socket/connection_message_socket.cpp`: Source of connection message socket.
-- `src/socket/message_socket/message_socket.cpp`: Source of message socket.
-- `src/socket/client_socket.cpp`: Source of abstract client socket class.
-- `src/socket/connection_socket.cpp`: Source of abstract connection socket class.
-- `src/socket/server_socket.cpp`: Source of server socket class.
-- `src/socket/socket.cpp`: Source of abstract socket class.
-- `src/controller.cpp`: Source of controller executable.
-- `src/mros_json.cpp`: Source of JSON object with parsing and conversion functionality.
-- `src/system.cpp`: Source of system executable.
+- `src/socket/message_socket/client_message_socket.cpp`: Source of client message socket. **TODO**
+- `src/socket/message_socket/connection_message_socket.cpp`: Source of connection message socket. **TODO**
+- `src/socket/message_socket/message_socket.cpp`: Source of message socket. **TODO**
+- `src/socket/client_socket.cpp`: Source of abstract client socket class. **TODO**
+- `src/socket/connection_socket.cpp`: Source of abstract connection socket class. **TODO**
+- `src/socket/server_socket.cpp`: Source of server socket class. **TODO**
+- `src/socket/socket.cpp`: Source of abstract socket class. **TODO**
+- `src/controller.cpp`: Source of controller executable. **TODO**
+- `src/mros_json.cpp`: Source of JSON object with parsing and conversion functionality. **TODO**
+- `src/system.cpp`: Source of system executable. **TODO**
 - `test/test_message_socket.cpp`: Tests for all the concrete socket classes.
 - `test/test_mros_json.cpp`: Tests for the JSON object.
 - `test/test_pose.cpp`: Tests for the pose message.
 - `test/test_twist.cpp`: Tests for the twist message.
 - `test_manual/test_bridge_and_simulator.cpp`: Source for the optional executable for feeding data to the simulator.
-- `CMakeLists.txt`: Build system generation file for building the files above.
+- `CMakeLists.txt`: Build system generation file for building the files above. **TODO**
 
 ## P1 Simulator  
 The P1 Simulator is an extremely basic visualizer that you can use to see the updates made to the system's pose.
