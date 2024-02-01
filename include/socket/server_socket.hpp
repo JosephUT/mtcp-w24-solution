@@ -30,7 +30,7 @@ class ServerSocket : public Socket {
   /**
    * Initialize a server socket. Calls socket() bind() and listen(), the last of which will begin to store pending
    * connections in the socket's kernel space backlog. Implements a nonblocking socket.
-   * @param domain The communication domain code to be used. Currently supports only AF_INET (IPv4).
+   * @param domain The communication domain code to be used. Supports only AF_INET (IPv4).
    * @param address The address to bind to in x.x.x.x format.
    * @param port The port number to bind to.
    * @param listen_backlog The number of pending connections to allow before dropping new connections.

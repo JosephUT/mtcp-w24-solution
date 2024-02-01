@@ -17,7 +17,7 @@ class ClientSocket : virtual public Socket {
  public:
   /**
    * Initialize socket with information of server socket it will connect to.
-   * @param domain The communication domain code to be used. Currently supports only AF_INET (IPv4).
+   * @param domain The communication domain code to be used. Supports only AF_INET (IPv4).
    * @param address The address of the server in x.x.x.x format.
    * @param port The port number of the server.
    * @throws SocketException Throw exception if socket() call fails.

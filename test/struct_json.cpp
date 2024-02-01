@@ -1,8 +1,8 @@
 #include <mros_json.hpp>
 #include <iostream>
 #include <cassert>
-#include <messageTypes/pose.hpp>
-#include <messageTypes/twist.hpp>
+#include <messages/pose.hpp>
+#include <messages/twist.hpp>
 
 
 int main() {
@@ -14,7 +14,6 @@ int main() {
 
     Messages::Pose2d pose2D = json;
     assert(pose2D.x == pose.x && pose2D.y == pose.y && pose2D.theta == pose.theta);
-
 
     return 0;
 }

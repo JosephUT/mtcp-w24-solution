@@ -21,6 +21,5 @@ namespace Messages {
             json["dy"] = twist.dy;
             json["dtheta"] = twist.dtheta;
         }
-
     };
 }
