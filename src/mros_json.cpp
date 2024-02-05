@@ -5,7 +5,6 @@
 #include <variant>
 #include <algorithm>
 
-
 Json::Value &Json::operator[](const std::string &key) {
     auto it = elts_.find(key);
     if (it != elts_.end()) {
@@ -145,9 +144,10 @@ Json Json::fromString(const std::string &str) {
                 }
                 break;
             case State::VALUE:
-                if (c == '"') {
-                    currentState = State::VALUE;
-                } else if (c == '{') {
+                // if (c == '"') {
+                //     currentState = State::VALUE;
+                // } else
+                if (c == '{') {
                     currentState = State::VALUE;
                 } else if (c == '[') {
                     currentState = State::ARRAY_ELEMENT;
@@ -176,9 +176,7 @@ Json Json::fromString(const std::string &str) {
                 }
                 break;
             case State::ARRAY_ELEMENT:
-                if (c == '"') {
-                    currentState = State::ARRAY_ELEMENT;
-                } else if (c == '[') {
+                if (c == '[') {
                     // Nested arrays are not supported in this example
                     throw std::runtime_error("Nested arrays are not supported.");
                 } else if (c == '{') {
@@ -236,14 +234,21 @@ Json Json::fromString(const std::string &str) {
 }
 
 Json::Value Json::getType(const std::string &str) {
+    if (str.empty()) {
+        throw std::logic_error("Error: string is invalid/empty");
+    }
+    if (str[0] == '"' || str[0] == '\"') {
+        return str;
+    }
+    size_t pos = 0;
     try {
-        size_t pos;
         int intResult = std::stoi(str, &pos);
         if (pos == str.size()) {
             return intResult;
         }
         return std::stod(str);
-    } catch (const std::invalid_argument &) {
+    } catch( std::invalid_argument const&) {
         return str;
     }
+
 }
