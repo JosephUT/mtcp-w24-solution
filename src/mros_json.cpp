@@ -49,7 +49,7 @@ std::string Json::stringify(const Json::Value &value) {
         case 1: // double
             str = std::to_string(std::get<double>(value.data_));
             break;
-        case 2: // string
+    case 2: // string
             str = "\"" + std::get<std::string>(value.data_) + "\"";
             break;
         case 3: { // std::vector<int>
@@ -169,8 +169,6 @@ Json Json::fromString(const std::string &str) {
                         currentValue.clear();
                     }
                     currentState = State::KEY;
-                } else if (std::isspace(c)) {
-                    // Skip whitespace
                 } else {
                     currentValue += c;
                 }
@@ -233,11 +231,17 @@ Json Json::fromString(const std::string &str) {
     return json;
 }
 
-Json::Value Json::getType(const std::string &str) {
+Json::Value Json::getType(std::string str) {
     if (str.empty()) {
         throw std::logic_error("Error: string is invalid/empty");
     }
+    size_t const dist = str.find_first_not_of(' ');
+    if (dist != 0) {
+        str.erase(0, dist);
+    }
     if (str[0] == '"' || str[0] == '\"') {
+        str.pop_back();
+        str.erase(0, 1);
         return str;
     }
     size_t pos = 0;
