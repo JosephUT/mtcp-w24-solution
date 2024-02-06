@@ -50,3 +50,6 @@ gtest_discover_tests(test_message_socket)
 # Manual tests.
 add_executable(test_bridge_and_simulator test_manual/test_bridge_and_simulator.cpp)
 target_link_libraries(test_bridge_and_simulator PRIVATE socket_lib json_lib)
+
+add_executable(test_json_parsing test_manual/test_json_parsing.cpp)
+target_link_libraries(test_json_parsing PRIVATE json_lib)

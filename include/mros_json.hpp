@@ -212,5 +212,5 @@ private:
      * @param str The string to convert to a Value.
      * @return Json::Value with proper type.
      */
-    static Json::Value getType(std::string const& str);
+    static Json::Value getType(std::string str);
 };
