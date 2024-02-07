@@ -1,5 +1,5 @@
 # Project.
-cmake_minimum_required(VERSION 3.25)
+cmake_minimum_required(VERSION 3.18)
 project(mtcp)
 set(CMAKE_CXX_STANDARD 20)
 
@@ -53,3 +53,27 @@ target_link_libraries(test_bridge_and_simulator PRIVATE socket_lib json_lib)
 
 add_executable(test_json_parsing test_manual/test_json_parsing.cpp)
 target_link_libraries(test_json_parsing PRIVATE json_lib)
+
+# LCM send.
+find_package(lcm REQUIRED)
+find_package(mbot_lcm_msgs)
+
+include(${LCM_USE_FILE})
+
+add_executable(twist_send src/lcm-send/twist_send.cpp)
+target_link_libraries(twist_send
+        PRIVATE
+        socket_lib
+        json_lib
+        lcm
+        mbot_lcm_msgs
+)
+
+add_executable(lcm_bridge src/lcm-send/lcm_bridge.cpp)
+target_link_libraries(lcm_bridge
+        PRIVATE
+        socket_lib
+        json_lib
+        lcm
+        mbot_lcm_msgs
+)
