@@ -1,7 +1,4 @@
 # Project 1
-{: .no_toc }
-Due 11:59PM Feb 9, 2024
-{: .fs-6 .fw-300 }
 
 # Overview
 Project 1 is an introduction to messaging which will provide the foundations for writing a complete publisher-subscriber package
