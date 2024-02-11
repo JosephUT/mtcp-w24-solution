@@ -53,3 +53,39 @@ target_link_libraries(test_bridge_and_simulator PRIVATE socket_lib json_lib)
 
 add_executable(test_json_parsing test_manual/test_json_parsing.cpp)
 target_link_libraries(test_json_parsing PRIVATE json_lib)
+
+set(SOCKET_HEADERS
+    include/socket/client_socket.hpp
+    include/socket/connection_socket.hpp
+    include/socket/server_socket.hpp
+    include/socket/socket.hpp
+)
+
+set(MSG_SOCKET_HEADERS
+    include/socket/message_socket/message_socket.hpp
+    include/socket/message_socket/client_message_socket.hpp
+    include/socket/message_socket/connection_message_socket.hpp
+)
+
+set(SOCKET_UTLS_HEADERS
+   include/socket/utils/peer_closed_exception.hpp
+   include/socket/utils/socket_errno_exception.hpp
+   include/socket/utils/socket_exception.hpp
+)
+
+set(JSON_HEADERS
+    include/mros_json.hpp
+)
+
+# Install the headers to different locations.
+install(FILES ${SOCKET_HEADERS} DESTINATION include/socket)
+install(FILES ${MSG_SOCKET_HEADERS} DESTINATION include/socket/message_socket)
+install(FILES ${SOCKET_UTLS_HEADERS} DESTINATION include/socket/utils)
+install(FILES ${JSON_HEADERS} DESTINATION include)
+
+install(TARGETS socket_lib json_lib
+        LIBRARY DESTINATION lib
+        ARCHIVE DESTINATION lib
+        RUNTIME DESTINATION bin
+        INCLUDES DESTINATION include
+)
