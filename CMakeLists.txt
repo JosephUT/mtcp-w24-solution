@@ -89,3 +89,16 @@ install(TARGETS socket_lib json_lib
         RUNTIME DESTINATION bin
         INCLUDES DESTINATION include
 )
+
+# CPack configuration
+set(CPACK_PACKAGE_NAME "MTCP-lib")
+set(CPACK_PACKAGE_VERSION "1.0.0")
+set(CPACK_PACKAGE_CONTACT "Broderick Riopelle broderio@umich.edu")
+set(CPACK_PACKAGE_DESCRIPTION "A package containing the socket_lib and json_lib libraries.")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "A package containing the socket_lib and json_lib libraries.")
+
+# Choose the type of package you want to generate. For example, if you want to generate a .deb package, use "DEB"
+set(CPACK_GENERATOR "TGZ")
+
+# This must always be last
+include(CPack)
